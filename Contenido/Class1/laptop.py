@@ -13,8 +13,15 @@ class Laptop:
     def valor_descuento(self, descuento):
         return (self.costo *descuento)/100
     
-laptop_pepito  = Laptop("HP", "Intel i5", "8GB")
-
-print(laptop_pepito.__dict__)
-print(laptop_pepito.valor_final())
-print("El valor de descuento es:", laptop_pepito.valor_descuento(10))
+    @staticmethod
+    def comparar_costo(laptop1, laptop2):
+        if laptop1.costo == laptop2.costo:
+            return "Ambas laptops tienen el mismo costo"
+        else: 
+            return "Las laptops tienen diferentes costos"  
+    @classmethod
+    def asus_laptop(cls, costo):
+       marca = "Asus"
+       procesador = "Intel i7"
+       memoria = "16GB"
+       return cls(marca, procesador, memoria,costo)

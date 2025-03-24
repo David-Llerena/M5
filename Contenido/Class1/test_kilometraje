@@ -1,0 +1,30 @@
+from kilometraje import Auto
+
+
+def main():
+    # Crear un auto Toyota nuevo del año actual
+    auto1 = Auto.crear_auto_toyota_nuevo()
+    auto1.mostrar_información()
+    print(f"Kilometraje inicial: {auto1.kilometraje}")
+
+    # Realizar un viaje
+    auto1.realizar_viaje(15000)
+    print(f"Kilometraje después del viaje: {auto1.kilometraje}")
+
+    # Crear otro auto para comparación
+    auto2 = Auto("Honda", "Civic", 2022)
+    auto2.realizar_viaje(15000)
+
+    # Comparar kilometraje
+    Auto.comparar_kilometraje(auto1, auto2)
+
+    # Calcular impuesto por kilometraje
+    impuesto = Auto.calcular_impuesto_por_kilometraje(auto1)
+    print(f"Impuesto calculado: ${impuesto:.2f}")
+
+    # Crear flota de autos
+    flota = Auto.crear_flota_autos(3)
+    print(f"Cantidad de autos en la flota: {len(flota)}")
+    for auto in flota:
+        auto.mostrar_información()
+main()

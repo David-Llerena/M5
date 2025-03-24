@@ -1,3 +1,4 @@
+from datetime import datetime
 class Auto:
     def __init__(self, marca, modelo, año):
         self.marca = marca
@@ -29,6 +30,48 @@ class Auto:
             print("Ya estoy usado")
         else:
             print("¡Ya déjame descansar por favor!")
+
+    # reto 7
+    @classmethod
+    def crear_auto_toyota_nuevo(cls):
+        """
+        Método de clase para crear un nuevo Toyota del año actual
+        """
+        año_actual = datetime.now().year
+        return cls("Toyota", "Modelo Genérico", año_actual)
+
+    @staticmethod
+    def comparar_kilometraje(auto1, auto2):
+        """
+        Método estático para comparar el kilometraje de dos autos
+        """
+        if auto1.kilometraje == auto2.kilometraje:
+            print("Los autos tienen el mismo kilometraje")
+            return True
+        else:
+            print("Los autos tienen diferente kilometraje")
+            return False
+
+    @staticmethod
+    def calcular_impuesto_por_kilometraje(auto):
+        """
+        Método estático adicional para calcular un impuesto hipotético 
+        basado en el kilometraje
+        """
+        if auto.kilometraje < 20000:
+            return 0  # Exento
+        elif 20000 <= auto.kilometraje <= 50000:
+            return auto.kilometraje * 0.01  # 1% de impuesto
+        else:
+            return auto.kilometraje * 0.02  # 2% de impuesto
+
+    @classmethod
+    def crear_flota_autos(cls, cantidad):
+        """
+        Método de clase para crear una flota de autos Toyota nuevos
+        """
+        return [cls.crear_auto_toyota_nuevo() for _ in range(cantidad)]
+        
 
 # Ejemplo de uso
 mi_auto = Auto("Toyota", "Corolla", 2020)
