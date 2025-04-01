@@ -2,12 +2,21 @@ from laptop import Laptop
 import random
 
 class Laptop_Business(Laptop):
-    def __init__(self, marca, procesador, ram, precio, descuento, almacenamiento, duracion_bateria):
+    def __init__(self, marca, procesador, ram, costo, descuento, almacenamiento, duracion_bateria):
         # Llamar al constructor de la clase base (Laptop)
-        super().__init__(marca, procesador, ram, precio, descuento)
+        super().__init__(marca, procesador, ram, costo , descuento)
         # Atributos específicos de Laptop_Business
         self.almacenamiento = almacenamiento
         self.duracion_bateria = duracion_bateria
+
+    def __str__(self):
+        return (f"Laptop Business:\n"
+                f"Marca: {self.marca}\n"
+                f"Procesador: {self.procesador}\n"
+                f"Memoria: {self.memoria}\n"
+                f"Almacenamiento: {self.almacenamiento}\n"
+                f"Precio: {self.costo}\n"
+                f"Duración Batería: {self.duracion_bateria}\n")
 
     def realizar_diagnostico_sistema(self):
         # Obtener el diagnóstico básico de la clase base
@@ -29,3 +38,4 @@ class Laptop_Business(Laptop):
             "latencia_red": random.randint(10, 100)  # Latencia simulada en ms
         }
         return conectividad
+    
